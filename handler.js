@@ -56,9 +56,12 @@
 
 	module.exports.graphql = function (event, context, callback) {
 
-		var query = JSON.parse(event.body).query;
+		var body = event.body;
+		var query = JSON.parse(body).query;
+		console.log('Query', JSON.parse(body).query);
 		return (0, _graphql.graphql)(_schema2.default, query).then(function (response) {
-			return callback(null, response);
+			console.log('Response', response);
+			callback(null, response);
 		}).catch(function (error) {
 			return callback(error);
 		});

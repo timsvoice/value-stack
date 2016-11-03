@@ -49,6 +49,8 @@ functions:
       - http:
           path: graphql
           method: post
+          response:
+            template: $input.body
 
 
 #    The following are a few example events you can configure

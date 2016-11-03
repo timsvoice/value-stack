@@ -5,9 +5,12 @@ import { graphql } from 'graphql';
 
 module.exports.graphql = function(event, context, callback) {
 
-	const query = JSON.parse(event.body).query;
+	const body = event.body;
+	const query = JSON.parse(body).query;
 
 	return graphql(graphqlSchema, query)
-		.then((response) => callback(null, response))
+		.then((response) => {
+			callback(null, response)
+		})
 		.catch((error) => callback(error));
 };
