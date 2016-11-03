@@ -3,15 +3,11 @@
 import graphqlSchema from './lib/schema.js';
 import { graphql } from 'graphql';
 
-module.exports.graphql = function(event, context, cb) {
+module.exports.graphql = function(event, context, callback) {
 
-	const query = event.body;
+	const query = JSON.parse(event.body).query;
 
 	return graphql(graphqlSchema, query)
-    .then((response) => {
-			cb(null, response)
-    })
-    .catch((error) => {
-			cb(error)
-    })
+		.then((response) => callback(null, response))
+		.catch((error) => callback(error));
 };

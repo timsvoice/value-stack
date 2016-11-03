@@ -54,16 +54,13 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	module.exports.graphql = function (event, context, cb) {
+	module.exports.graphql = function (event, context, callback) {
 
-		var query = event.body;
-
+		var query = JSON.parse(event.body).query;
 		return (0, _graphql.graphql)(_schema2.default, query).then(function (response) {
-			console.log(response);
-			cb(null, response);
+			return callback(null, response);
 		}).catch(function (error) {
-			console.log(error);
-			cb(error);
+			return callback(error);
 		});
 	};
 
@@ -85,7 +82,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var schema = '\n  type Post {\n    name: String\n  }\n\n  # the schema allows the following query:\n  type Query {\n    post: Post\n  }\n\n  # we need to tell the server which types represent the root query\n  # and root mutation types. We call them RootQuery and RootMutation by convention.\n  schema {\n    query: Query\n  }\n';
+	var schema = '\n  type Post {\n    name: String\n  }\n\n  # the schema allows the following query:\n  type RootQuery {\n    post: Post\n  }\n\n  # we need to tell the server which types represent the root query\n  # and root mutation types. We call them RootQuery and RootMutation by convention.\n  schema {\n    query: RootQuery\n  }\n';
 
 	var graphqlSchema = (0, _graphqlTools.makeExecutableSchema)({
 	  typeDefs: schema,
@@ -110,7 +107,7 @@
 	  value: true
 	});
 	var resolvers = {
-	  Query: {
+	  RootQuery: {
 	    post: function post() {
 	      return { name: 'Successful Query' };
 	    }

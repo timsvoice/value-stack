@@ -1,5 +1,5 @@
 const resolvers = {
-  Query: {
+  RootQuery: {
     post() {
       return { name: 'Successful Query' };
     },
