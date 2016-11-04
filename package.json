@@ -29,6 +29,7 @@
     "serverless-webpack-plugin": "^0.4.5",
     "sinon": "^1.17.5",
     "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2",
     "webpack-node-externals": "^1.5.4"
   },
   "scripts": {
