@@ -23,6 +23,10 @@
     "eslint-config-airbnb": "^6.1.0",
     "eslint-plugin-import": "^1.1.0",
     "eslint-plugin-react": "^4.2.3",
+<<<<<<< HEAD
+=======
+    "graphql-tools": "^0.8.0",
+>>>>>>> 97b23058015e8856b01036a74d877f1fd966f240
     "mocha": "^3.0.2",
     "request-promise": "^4.1.1",
     "serverless-offline": "^3.2.1",
