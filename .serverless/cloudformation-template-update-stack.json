@@ -65,7 +65,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/value-stack/dev/1478276119490-2016-11-04T16:15:19.490Z/value-stack.zip"
+          "S3Key": "serverless/value-stack/dev/1478284648882-2016-11-04T18:37:28.882Z/value-stack.zip"
         },
         "FunctionName": "value-stack-dev-graphql",
         "Handler": "handler.graphql",
@@ -108,47 +108,65 @@
         "HttpMethod": "POST",
         "MethodResponses": [
           {
-            "ResponseParameters": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
             "ResponseModels": {},
             "StatusCode": 200
           },
           {
-            "ResponseParameters": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
             "ResponseModels": {},
             "StatusCode": 400
           },
           {
-            "ResponseParameters": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
             "ResponseModels": {},
             "StatusCode": 401
           },
           {
-            "ResponseParameters": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
             "ResponseModels": {},
             "StatusCode": 403
           },
           {
-            "ResponseParameters": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
             "ResponseModels": {},
             "StatusCode": 404
           },
           {
-            "ResponseParameters": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
             "ResponseModels": {},
             "StatusCode": 422
           },
           {
-            "ResponseParameters": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
             "ResponseModels": {},
             "StatusCode": 500
           },
           {
-            "ResponseParameters": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
             "ResponseModels": {},
             "StatusCode": 502
           },
           {
-            "ResponseParameters": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
             "ResponseModels": {},
             "StatusCode": 504
           }
@@ -185,55 +203,73 @@
             {
               "StatusCode": 200,
               "SelectionPattern": "",
-              "ResponseParameters": {},
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
               "ResponseTemplates": {}
             },
             {
               "StatusCode": 400,
               "SelectionPattern": ".*\\[400\\].*",
-              "ResponseParameters": {},
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
               "ResponseTemplates": {}
             },
             {
               "StatusCode": 401,
               "SelectionPattern": ".*\\[401\\].*",
-              "ResponseParameters": {},
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
               "ResponseTemplates": {}
             },
             {
               "StatusCode": 403,
               "SelectionPattern": ".*\\[403\\].*",
-              "ResponseParameters": {},
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
               "ResponseTemplates": {}
             },
             {
               "StatusCode": 404,
               "SelectionPattern": ".*\\[404\\].*",
-              "ResponseParameters": {},
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
               "ResponseTemplates": {}
             },
             {
               "StatusCode": 422,
               "SelectionPattern": ".*\\[422\\].*",
-              "ResponseParameters": {},
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
               "ResponseTemplates": {}
             },
             {
               "StatusCode": 500,
               "SelectionPattern": ".*(Process\\s?exited\\s?before\\s?completing\\s?request|\\[500\\]).*",
-              "ResponseParameters": {},
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
               "ResponseTemplates": {}
             },
             {
               "StatusCode": 502,
               "SelectionPattern": ".*\\[502\\].*",
-              "ResponseParameters": {},
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
               "ResponseTemplates": {}
             },
             {
               "StatusCode": 504,
               "SelectionPattern": ".*\\[504\\].*",
-              "ResponseParameters": {},
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              },
               "ResponseTemplates": {}
             }
           ]
@@ -246,7 +282,51 @@
         }
       }
     },
-    "ApiGatewayDeployment1478276119501": {
+    "ApiGatewayMethodGraphqlOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "ResponseModels": {},
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "StatusCode": "200"
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'"
+              },
+              "ResponseTemplates": {
+                "application/json": ""
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceGraphql"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayDeployment1478284648892": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
