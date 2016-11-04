@@ -4,7 +4,7 @@ const resolvers = {
   RootQuery: {
     player() {
       return {
-        getAllPlayers();
+        getAllPlayers( 'Fandual' );
       };
     },
   },

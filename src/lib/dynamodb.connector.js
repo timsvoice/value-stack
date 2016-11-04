@@ -5,7 +5,7 @@ import AWS from 'aws-sdk';
  * @param {string} tableName The name of the table to scan
  **/
 
-module.exports.getAllPlayers = ( tableName  ) => {
+module.exports.getAllPlayers = ( tableName ) => {
 
   // create a new ddb
   const dynamodb = new AWS.DynamoDB();

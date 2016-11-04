@@ -87,13 +87,13 @@
 
 	var _graphqlTools = __webpack_require__(2);
 
-	var _resolvers = __webpack_require__(88);
+	var _resolvers = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./resolvers\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _resolvers2 = _interopRequireDefault(_resolvers);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var schema = '\n  type Post {\n    name: String\n  }\n\n  # the schema allows the following query:\n  type RootQuery {\n    post: Post\n  }\n\n  # we need to tell the server which types represent the root query\n  # and root mutation types. We call them RootQuery and RootMutation by convention.\n  schema {\n    query: RootQuery\n  }\n';
+	var schema = '\n  type Player {\n    playerId: String\n    first_name: String\n    fppg: Number\n    game: String\n    injury_details: String\n    injury_indicator: String\n    last_name: String\n    opponent: String\n    played: Number\n    playerId: String\n    position: String\n    salary: Number\n    team: String\n  }\n\n  # the schema allows the following query:\n  type RootQuery {\n    players: [Player]\n  }\n\n  # we need to tell the server which types represent the root query\n  # and root mutation types. We call them RootQuery and RootMutation by convention.\n  schema {\n    query: RootQuery\n  }\n';
 
 	var graphqlSchema = (0, _graphqlTools.makeExecutableSchema)({
 	  typeDefs: schema,
@@ -31027,25 +31027,6 @@
 	}
 	exports.autopublishMutationResults = autopublishMutationResults;
 	//# sourceMappingURL=autopublish.js.map
-
-/***/ },
-/* 88 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var resolvers = {
-	  RootQuery: {
-	    post: function post() {
-	      return { name: 'Successful Query' };
-	    }
-	  }
-	};
-
-	exports.default = resolvers;
 
 /***/ }
 /******/ ])));
