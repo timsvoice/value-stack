@@ -54,7 +54,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-<<<<<<< HEAD
 	module.exports.graphql = function (event, context, callback) {
 
 		var body = event.body;
@@ -73,18 +72,6 @@
 			callback(null, data);
 		}).catch(function (error) {
 			return callback(error);
-=======
-	module.exports.graphql = function (event, context, cb) {
-
-		var query = event.body;
-
-		return (0, _graphql.graphql)(_schema2.default, query).then(function (response) {
-			console.log(response);
-			cb(null, response);
-		}).catch(function (error) {
-			console.log(error);
-			cb(error);
->>>>>>> 97b23058015e8856b01036a74d877f1fd966f240
 		});
 	};
 
@@ -100,21 +87,13 @@
 
 	var _graphqlTools = __webpack_require__(2);
 
-<<<<<<< HEAD
 	var _resolvers = __webpack_require__(88);
-=======
-	var _resolvers = __webpack_require__(3);
->>>>>>> 97b23058015e8856b01036a74d877f1fd966f240
 
 	var _resolvers2 = _interopRequireDefault(_resolvers);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-<<<<<<< HEAD
 	var schema = '\n  type Post {\n    name: String\n  }\n\n  # the schema allows the following query:\n  type RootQuery {\n    post: Post\n  }\n\n  # we need to tell the server which types represent the root query\n  # and root mutation types. We call them RootQuery and RootMutation by convention.\n  schema {\n    query: RootQuery\n  }\n';
-=======
-	var schema = '\n  type Post {\n    name: String\n  }\n\n  # the schema allows the following query:\n  type Query {\n    post: Post\n  }\n\n  # we need to tell the server which types represent the root query\n  # and root mutation types. We call them RootQuery and RootMutation by convention.\n  schema {\n    query: Query\n  }\n';
->>>>>>> 97b23058015e8856b01036a74d877f1fd966f240
 
 	var graphqlSchema = (0, _graphqlTools.makeExecutableSchema)({
 	  typeDefs: schema,
@@ -125,7 +104,6 @@
 
 /***/ },
 /* 2 */
-<<<<<<< HEAD
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1055,22 +1033,12 @@
 /***/ },
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
-=======
-/***/ function(module, exports) {
-
-	module.exports = require("graphql-tools");
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
->>>>>>> 97b23058015e8856b01036a74d877f1fd966f240
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-<<<<<<< HEAD
 	exports.graphql = graphql;
 
 	var _source = __webpack_require__(6);
@@ -31078,23 +31046,6 @@
 	};
 
 	exports.default = resolvers;
-=======
-	var resolvers = {
-	  Query: {
-	    post: function post() {
-	      return { name: 'Successful Query' };
-	    }
-	  }
-	};
-
-	exports.default = resolvers;
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	module.exports = require("graphql");
->>>>>>> 97b23058015e8856b01036a74d877f1fd966f240
 
 /***/ }
 /******/ ])));

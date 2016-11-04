@@ -38,7 +38,13 @@
               "Effect": "Allow",
               "Action": [
                 "logs:CreateLogGroup",
-                "logs:CreateLogStream",
+                "logs:CreateLogStream"
+              ],
+              "Resource": "arn:aws:logs:us-east-1:*:*"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
                 "logs:PutLogEvents"
               ],
               "Resource": "arn:aws:logs:us-east-1:*:*"
@@ -59,7 +65,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/value-stack/dev/1478013212008-2016-11-01T15:13:32.008Z/value-stack.zip"
+          "S3Key": "serverless/value-stack/dev/1478276119490-2016-11-04T16:15:19.490Z/value-stack.zip"
         },
         "FunctionName": "value-stack-dev-graphql",
         "Handler": "handler.graphql",
@@ -240,7 +246,7 @@
         }
       }
     },
-    "ApiGatewayDeployment1478013212019": {
+    "ApiGatewayDeployment1478276119501": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
