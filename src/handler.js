@@ -10,7 +10,16 @@ module.exports.graphql = function(event, context, callback) {
 
 	return graphql(graphqlSchema, query)
 		.then((response) => {
-			callback(null, response)
+
+			const data = {
+				statusCode: 200,
+				headers: {
+					"Access-Control-Allow-Origin" : "*" // Required for CORS support to work
+				},
+				body: JSON.stringify(response)
+			};
+
+			callback(null, data)
 		})
 		.catch((error) => callback(error));
 };

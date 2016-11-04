@@ -3,7 +3,9 @@ const nodeExternals = require('webpack-node-externals');
 module.exports = {
     entry: './src/handler.js',
     target: 'node',
-    externals: [nodeExternals()],
+    // externals: [nodeExternals({
+    //   whitelist: ['graphql-tools', 'graphql']
+    // })],
     output: {
         path: '.',
         filename: 'handler.js',
