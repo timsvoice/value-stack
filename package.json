@@ -4,6 +4,7 @@
   "description": "An app that ranks FanDual NFL players by value",
   "main": "handler.js",
   "dependencies": {
+    "aws-sdk": "^2.6.15",
     "body-parser": "^1.15.2",
     "graphql": "^0.7.2",
     "graphql-tools": "^0.8.0"

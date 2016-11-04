@@ -1,7 +1,11 @@
+import { getAllPlayers } from 'dynamodb.connector.js';
+
 const resolvers = {
   RootQuery: {
-    post() {
-      return { name: 'Successful Query' };
+    player() {
+      return {
+        getAllPlayers();
+      };
     },
   },
 };
