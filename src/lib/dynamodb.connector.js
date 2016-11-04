@@ -17,7 +17,7 @@ module.exports.getAllPlayers = ( tableName ) => {
 
   // make the getItem call
   dynamodb.scan(params, (err, data) => {
-    if err throw err;
+    if (err) throw err;
     return data;
   })
 

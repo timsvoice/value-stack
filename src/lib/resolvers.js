@@ -1,11 +1,9 @@
-import { getAllPlayers } from 'dynamodb.connector.js';
+import { getAllPlayers } from './dynamodb.connector.js';
 
 const resolvers = {
   RootQuery: {
     player() {
-      return {
-        getAllPlayers( 'Fandual' );
-      };
+      return getAllPlayers( 'Fandual' );
     },
   },
 };
