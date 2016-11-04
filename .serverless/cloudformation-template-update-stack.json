@@ -65,7 +65,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/value-stack/dev/1478300655227-2016-11-04T23:04:15.227Z/value-stack.zip"
+          "S3Key": "serverless/value-stack/dev/1478301285750-2016-11-04T23:14:45.750Z/value-stack.zip"
         },
         "FunctionName": "value-stack-dev-graphql",
         "Handler": "handler.graphql",
@@ -326,7 +326,7 @@
         }
       }
     },
-    "ApiGatewayDeployment1478300655238": {
+    "ApiGatewayDeployment1478301285761": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {

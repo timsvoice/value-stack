@@ -5,16 +5,16 @@ const schema = `
   type Player {
     playerId: String
     first_name: String
-    fppg: Number
+    fppg: Int
     game: String
     injury_details: String
     injury_indicator: String
     last_name: String
     opponent: String
-    played: Number
+    played: Int
     playerId: String
     position: String
-    salary: Number
+    salary: Int
     team: String
   }
 
