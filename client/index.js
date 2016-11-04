@@ -10,17 +10,11 @@ const client = new ApolloClient({
   networkInterface: network,
 });
 
-const App = ({ children, params, location }) => (
-  <div className="container">
-    <Posts />
-  </div>
-);
-
 const Posts = ({ params, data, state }) => {
   console.log(data);
   return (
     <div>
-      <h1>Data { data }</h1>
+      { !data.loading ? <h1>Data { data.post.name }</h1> : <div>Loading!</div> }      
     </div>
   );
 };
@@ -33,6 +27,12 @@ const PostsData =  gql`
   }`;
 
 const PostsWithData = graphql(PostsData)(Posts);
+
+const App = ({ children, params, location }) => (
+  <div className="container">
+    <PostsWithData />
+  </div>
+);
 
 ReactDOM.render((
   <ApolloProvider client={client}>
