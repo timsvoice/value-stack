@@ -48,6 +48,19 @@
                 "logs:PutLogEvents"
               ],
               "Resource": "arn:aws:logs:us-east-1:*:*"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:DescribeTable",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem"
+              ],
+              "Resource": "arn:aws:dynamodb:us-west-2:164971268962:table/FandualWeekNine"
             }
           ]
         },
@@ -65,7 +78,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/value-stack/dev/1478301285750-2016-11-04T23:14:45.750Z/value-stack.zip"
+          "S3Key": "serverless/value-stack/dev/1478367757042-2016-11-05T17:42:37.042Z/value-stack.zip"
         },
         "FunctionName": "value-stack-dev-graphql",
         "Handler": "handler.graphql",
@@ -326,7 +339,7 @@
         }
       }
     },
-    "ApiGatewayDeployment1478301285761": {
+    "ApiGatewayDeployment1478367757054": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -349,6 +362,28 @@
         },
         "Action": "lambda:InvokeFunction",
         "Principal": "apigateway.amazonaws.com"
+      }
+    },
+    "fandualTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "TableName": "FandualWeekNine",
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "playerId",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "playerId",
+            "KeyType": "HASH"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        }
       }
     }
   },

@@ -14,15 +14,16 @@ const Posts = ({ params, data, state }) => {
   console.log(data);
   return (
     <div>
-      { !data.loading ? <h1>Data { data.post.name }</h1> : <div>Loading!</div> }      
+      { !data.loading ? <h1>Data { data.players[0].first_name }</h1> : <div>Loading!</div> }
     </div>
   );
 };
 
 const PostsData =  gql`
   {
-    post {
-      name
+    players {
+      first_name
+      last_name
     }
   }`;
 

@@ -12,7 +12,6 @@ const schema = `
     last_name: String
     opponent: String
     played: Int
-    playerId: String
     position: String
     salary: Int
     team: String

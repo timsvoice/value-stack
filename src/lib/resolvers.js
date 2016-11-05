@@ -2,8 +2,10 @@ import { getAllPlayers } from './dynamodb.connector.js';
 
 const resolvers = {
   RootQuery: {
-    player() {
-      return getAllPlayers( 'Fandual' );
+    players() {
+      return getAllPlayers( 'FandualWeekNine' )
+        .then((players) => ( players ))
+        .catch((err) => { throw err });
     },
   },
 };

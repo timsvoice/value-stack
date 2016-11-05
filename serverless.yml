@@ -16,7 +16,17 @@ service: value-stack
 provider:
   name: aws
   runtime: nodejs4.3
-
+  iamRoleStatements: # permissions for all of your functions can be set here
+    - Effect: Allow
+      Action: # Gives permission to DynamoDB tables in a specific region
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:us-west-2:164971268962:table/FandualWeekNine"
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -65,12 +75,43 @@ functions:
 #      - stream: arn:aws:dynamodb:region:XXXXXX:table/foo/stream/1970-01-01T00:00:00.000
 
 # you can add CloudFormation resource templates here
-#resources:
-#  Resources:
-#    NewResource:
-#      Type: AWS::S3::Bucket
-#      Properties:
-#        BucketName: my-new-bucket
+resources:
+ Resources:
+   fandualTable:
+     Type: AWS::DynamoDB::Table
+     Properties:
+       TableName: FandualWeekNine
+       AttributeDefinitions:
+         - AttributeName: playerId
+           AttributeType: S
+        #  - AttributeName: first_name
+        #    AttributeType: S
+        #  - AttributeName: fppg
+        #    AttributeType: N
+        #  - AttributeName: game
+        #    AttributeType: S
+        #  - AttributeName: injury_details
+        #    AttributeType: S
+        #  - AttributeName: injury_indicator
+        #    AttributeType: S
+        #  - AttributeName: last_name
+        #    AttributeType: S
+        #  - AttributeName: opponent
+        #    AttributeType: S
+        #  - AttributeName: played
+        #    AttributeType: N
+        #  - AttributeName: position
+        #    AttributeType: S
+        #  - AttributeName: salary
+        #    AttributeType: N
+        #  - AttributeName: team
+        #    AttributeType: S
+       KeySchema:
+         - AttributeName: playerId
+           KeyType: HASH
+       ProvisionedThroughput:
+         ReadCapacityUnits: 1
+         WriteCapacityUnits: 1
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
